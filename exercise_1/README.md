@@ -13,3 +13,24 @@ Your goal is to write a python script that prints the contents of *exercise1_tab
 
 For this exercise, use only the python standard library.
 
+### Expected Output
+
+```
+Sample_Id_2	var1	var2
+A1  19	95
+A2	12	74
+A3	15	6
+A4	10	65
+A5	19	98
+B1	8	61
+B2	20	56
+B3	19	37
+B4	0	2
+B5	7	23
+C1	3	79
+C2	5	97
+C3	14	72
+C4	9	84
+C5	16	46
+```
+
