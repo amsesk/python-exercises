@@ -1,21 +1,3 @@
-class TableRow(object):
-
-    def __init__(self, row_text, delimiter):
-        
-        self.row_text = row_text
-
-        self.delimiter = delimiter
-
-        self.values = self.parse_row_into_columns(self.row_text)
-
-    def parse_row_into_columns(self, row_text):
-
-        stripped = row_text.strip()
-
-        spl = stripped.split(self.delimiter)
-
-        return spl
-
 class TableReader(object):
 
     def __init__(self, path_to_file, delimiter):
@@ -49,6 +31,24 @@ class TableReader(object):
 
     def close_file_object(self):
         self.table_file_object.close()
+
+class TableRow(object):
+
+    def __init__(self, row_text, delimiter):
+        
+        self.row_text = row_text
+
+        self.delimiter = delimiter
+
+        self.values = self.parse_row_into_columns(self.row_text)
+
+    def parse_row_into_columns(self, row_text):
+
+        stripped = row_text.strip()
+
+        spl = stripped.split(self.delimiter)
+
+        return spl
 
 
 if __name__ == "__main__":
