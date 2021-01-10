@@ -5,13 +5,16 @@ class TableReader(object):
         self.table_file_object = open(path_to_file, 'r')
 
         self.delimiter = delimiter
+        
+        self.column_names = []
 
         self.rows = []
 
     def read(self):
 
-        # First row contains headers, so skip it
-        first_line = self.table_file_object.readline()
+        # First row contains headers, so strip it, split it, and save it to the instance under the column_names attribute
+        first_line = self.table_file_object.readline().strip()
+        self.column_names = first_line.split(self.delimiter)
 
         for line in self.table_file_object.readlines():
 
@@ -20,8 +23,11 @@ class TableReader(object):
             self.rows.append(this_row)
 
     def sum_second_and_third_columns(self):
-
+        
+        # Print out some new column names first
         print ("Sample_Id_1\tSum_col2_col3")
+
+        # Then print out the new rows
         for row in self.rows:
             
             this_sample = row.values[0]
@@ -40,7 +46,7 @@ class TableRow(object):
 
         self.delimiter = delimiter
 
-        self.values = self.parse_row_into_columns(self.row_text)
+        self.values = self.parse_row_into_columns(row_text = self.row_text)
 
     def parse_row_into_columns(self, row_text):
 
